@@ -1,6 +1,7 @@
 
 const queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=London&appid=2310062da2c85131564e07a9b2044f63`
 
+
 fetch(queryURL)
   .then(function (response) {
     return response.json();
@@ -13,11 +14,7 @@ fetch(queryURL)
       console.log(data.list[i].wind.speed);
     }
     console.log(data)
-    // $('#today').append(data.list[0].dt_txt)
-    // $('#today').append(data.list[0].main.humidity)
-    // // $('#today').append(data.list[0].main.temp)
-    // // $('#forecast').text((data.list[0].wind.speed))
-    // $('#today ').text((data.list[0].wind.speed)) 
+
 
     const today = $('<h3>')
     today.text(data.list[0].dt_txt)
@@ -30,12 +27,12 @@ fetch(queryURL)
 
 
     const Wind = $('<div>')
-    Wind.text(data.list[0].wind.speed)
+    Wind.text(`Wind: ${data.list[0].wind.speed} kmph`)
     $('#today').append(Wind)
 
 
     const humidity = $('<div>')
-    humidity.text(data.list[0].main.humidity)
+    humidity.text(`Humidity: ${data.list[0].main.humidity} %`)
     $('#today').append(humidity)
 
   })
@@ -76,25 +73,11 @@ $('#search-button').on("click", function (e) {
 
 
 //////////////////////////////////////////// 
-
-
-
-
-
-
-
-const fiveDayHeader = $('<h3>')
+const fiveDayHeader = $('<h2>')
 fiveDayHeader.text("5 day forecast")
-$('#forecast').append(fiveDayHeader)
-
-//CITY SECTION//
-
-// use api to seach for city
-//get response then format response
-//will need to use day JS to seet the data value as well
-//retive the temp, wind and humidity from the data object
+$('#forecast').prepend(fiveDayHeader)
 
 
-//5 DAY FORECAST SECTION 
+//next we want to append the 5 day weather to the bottom maybe with 5 JS cards
 
 
