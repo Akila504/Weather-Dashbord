@@ -21,6 +21,22 @@ fetch(queryURL)
     $('#today').append(today)
 
 
+    const wImg = $('<img>')
+    const icon = data.list[0].weather[0].icon
+
+    var iconurl = "http://openweathermap.org/img/w/" + icon + ".png";
+
+
+    wImg.attr('src', iconurl);
+    today.append(wImg)
+
+
+
+
+
+
+
+
     const Temp = $('<div>')
     Temp.text(`Temperature: ${data.list[0].main.temp} Celcius`)
     $('#today').append(Temp)
@@ -65,8 +81,6 @@ $('#search-button').on("click", function (e) {
   //with the list add button 
   history_button.text(storedJSON)
   $('#history').append(history_button)
-
-
 })
 
 
@@ -79,5 +93,13 @@ $('#forecast').prepend(fiveDayHeader)
 
 
 //next we want to append the 5 day weather to the bottom maybe with 5 JS cards
+
+//For each day id
+//need to iterate over the days and add the
+//day
+//icon
+//Temp
+//Wind
+//Humidity
 
 
